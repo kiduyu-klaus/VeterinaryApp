@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/vet_nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="Home"/>
+        <item android:id="@+id/vet_nav_animal"
+            android:icon="@drawable/ic_calendar"
+            android:title="Animals Appointment"/>
+        <item android:id="@+id/vet_nav_vet2"
+            android:icon="@drawable/ic_history"
+            android:title="Treatment History"/>
+        <item android:id="@+id/office"
+            android:icon="@drawable/ic_gps"
+            android:title="My office"/>
+        <item android:id="@+id/updates"
+            android:icon="@drawable/ic_cow"
+            android:title="Post Updates"/>
+
+        <item android:id="@+id/vet_nav_signout"
+            android:icon="@drawable/ic_powe"
+            android:title="SignOut"/>
+    </group>
+
+    <item android:title="Communicated.">
+        <menu>
+            <item android:id="@+id/vet_nav_share"
+                android:icon="@drawable/ic_share"
+                android:title="Share"/>
+            <item android:id="@+id/vet_nav_send"
+                android:icon="@drawable/ic_send"
+                android:title="Send"/>
+        </menu>
+    </item>
+
+</menu>

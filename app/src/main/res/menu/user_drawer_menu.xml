@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/user_nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="Home"/>
+        <item android:id="@+id/user_nav_updates"
+            android:icon="@drawable/ic_history"
+            android:title="Updates"/>
+        <item android:id="@+id/user_nav_animal"
+            android:icon="@drawable/ic_pets"
+            android:title="My Animals"/>
+        <item android:id="@+id/user_nav_vet"
+            android:icon="@drawable/ic_search"
+            android:title="View Available Vets"/>
+
+        <item android:id="@+id/user_nav_book"
+            android:icon="@drawable/ic_book"
+            android:title="My Appointments"/>
+
+        <item android:id="@+id/user_nav_vet2"
+            android:icon="@drawable/ic_history"
+            android:title="Treatment History"/>
+
+        <item android:id="@+id/user_nav_profile"
+            android:icon="@drawable/ic_person"
+            android:title="Profile"/>
+
+        <item android:id="@+id/customer_nav_signout"
+            android:icon="@drawable/ic_powe"
+            android:title="SignOut"/>
+    </group>
+
+    <item android:title="Communicated.">
+        <menu>
+            <item android:id="@+id/customer_nav_share"
+                android:icon="@drawable/ic_share"
+                android:title="Share"/>
+            <item android:id="@+id/customer_nav_send"
+                android:icon="@drawable/ic_send"
+                android:title="Send"/>
+        </menu>
+    </item>
+
+</menu>

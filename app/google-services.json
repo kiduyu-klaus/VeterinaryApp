@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "586313775797",
+    "firebase_url": "https://k-vet-app.firebaseio.com",
+    "project_id": "k-vet-app",
+    "storage_bucket": "k-vet-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:586313775797:android:463d632e5837f7caa39cfc",
+        "android_client_info": {
+          "package_name": "com.kiduyu.Andrewproject.k_vet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "586313775797-nndap0me9qndih2q062fc22vg6eicob8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kiduyu.Andrewproject.k_vet",
+            "certificate_hash": "3ba39af2962b98b1aa6b294bdf81bd32eea77ba7"
+          }
+        },
+        {
+          "client_id": "586313775797-oc6eigs22qool70499d3l72lbl7h6oag.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQAPEMu98mbYc7gyIAVKfVirN-_YlK2U8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "586313775797-oc6eigs22qool70499d3l72lbl7h6oag.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

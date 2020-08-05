@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">K-vet</string>
+
+    //activity_main
+    <string name="splash_text">K-vet App.</string>
+    <string name="splash_text_details">An Application to enable the farmers locate veterinary officers within the nearby location within the shortest time possible.</string>
+    <string name="splash_button1">Join Now</string>
+    <string name="splash_text_choose_login">To Continue to Login Page, Please choose The Preferred type of account. </string>
+    <string name="splash_text_choose_register">To Continue to Register Page, Please choose The Preferred type of account. </string>
+    <string name="splash_button2">Already have an Account? Login</string>
+    <string name="test_sting">text string</string>
+    <string name="farmer_login">Login As Farmer</string>
+    <string name="password">Password</string>
+    <string name="phone">Phone Number</string>
+    <string name="log_in">Login As Farmer</string>
+    <string name="don_t_have_account_sign_up_here">Don\'t have account?Sign up here</string>
+    <string name="already_have_account_sign_in_here">Already have account?Sign in here</string>
+    <string name="full_name">Full Name:</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="please_wait">Please wait....Verifying Credentials.</string>
+
+
+    //home
+    <string name="navigation_drawer_open">Open navigtion drawer</string>
+    <string name="navigation_drawer_close">close navigtion drawer</string>
+</resources>
