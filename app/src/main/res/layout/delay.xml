@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="6dp"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textAlignment="center"
+        android:text="Delayed till when"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="6dp"
+        android:hint="delayed till:"
+        android:inputType="date"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textAlignment="center"
+        android:id="@+id/txt_input_delay"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:text="save"
+        android:textColor="@color/white"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:background="@color/colorPrimaryDark"
+        android:id="@+id/btn_lay_save"/>
+
+
+
+
+</LinearLayout>

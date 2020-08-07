@@ -5,13 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -26,13 +22,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.kiduyu.Andrewproject.k_vet.Models.Farmer;
 import com.kiduyu.Andrewproject.k_vet.Models.Veterinary;
-import com.shashank.sony.fancytoastlib.FancyToast;
+
+import java.util.HashMap;
 
 public class RegisterActivity extends AppCompatActivity {
     private EditText Fullname ,PhoneNumber, Password,password_confirm;
     private Button LoginButton;
     private ProgressDialog loadingBar;
-    private TextView reg_title,signintxt;
+    private TextView reg_title,signintxt, vettext,customertxt;
     private String parentDbName = "Farmers";
 
     @Override
@@ -40,53 +37,43 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-//transparent status bar
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Window w = getWindow(); //   in Activity's onCreate() for instance
-            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        }
-
         LoginButton = findViewById(R.id.btn_reg);
         Fullname = findViewById(R.id.fullname);
         PhoneNumber =  findViewById(R.id.phone_number);
         password_confirm =  findViewById(R.id.password_confm);
         Password =findViewById(R.id.password_reg);
+        vettext=findViewById(R.id.vendor_txt);
+        customertxt=findViewById(R.id.customer_txt);
         reg_title=findViewById(R.id.reg_title);
         signintxt=findViewById(R.id.signin_txt);
-
         loadingBar= new ProgressDialog(this);
 
-        //get passed data
-        Intent intent = getIntent();
+        vettext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LoginButton.setText("Veterinary Register");
+                reg_title.setText("Veterinary Registration");
+                parentDbName="Veterinary";
+                customertxt.setVisibility(View.VISIBLE);
+                vettext.setVisibility(View.INVISIBLE);
+            }
+        });
 
-        final String id = intent.getStringExtra("choose");
-        Log.d("TAG", "extra: " +id);
+        customertxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LoginButton.setText("Farmer Register");
+                reg_title.setText("Farmer Registration");
+                parentDbName="Farmers";
+                vettext.setVisibility(View.VISIBLE);
+                customertxt.setVisibility(View.INVISIBLE);
+            }
+        });
 
-        if (id.equals("farmer")){
-            LoginButton.setText("Farmer Register");
-            reg_title.setText("Farmer Registration");
-            parentDbName="Farmers";
-
-        } else if (id.equals("vet")){
-            LoginButton.setText("Veterinary Register");
-            reg_title.setText("Veterinary Registration");
-            parentDbName="Veterinary";
-        }
         signintxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if (id.equals("farmer")){
-                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                    intent.putExtra("choose","farmer");
-                    startActivity(intent);
-
-                } else if (id.equals("vet")){
-                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                    intent.putExtra("choose","vet");
-                    startActivity(intent);
-                }
-                //startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
             }
         });
 
@@ -97,9 +84,11 @@ public class RegisterActivity extends AppCompatActivity {
                 CreateAccount();
             }
         });
+
     }
 
-    private void CreateAccount() {
+    private void CreateAccount()
+    {
         String name = Fullname.getText().toString();
         String phone = PhoneNumber.getText().toString();
         String password = Password.getText().toString();
@@ -107,25 +96,22 @@ public class RegisterActivity extends AppCompatActivity {
 
         if (TextUtils.isEmpty(name))
         {
-            FancyToast.makeText(this,"Name Is Required..",FancyToast.LENGTH_LONG,FancyToast.ERROR,false).show();
+            Fullname.setError("Name Is Required..");
             return;
         }
         else if (TextUtils.isEmpty(phone))
         {
             PhoneNumber.setError("Phone Number Is Required..");
-            FancyToast.makeText(this,"Phone Number Is Required..",FancyToast.LENGTH_LONG,FancyToast.ERROR,false).show();
             return;
         }
         else if (TextUtils.isEmpty(password))
         {
             Password.setError("Password Is Required..");
-            FancyToast.makeText(this,"Password Is Required..",FancyToast.LENGTH_LONG,FancyToast.ERROR,false).show();
             return;
         }
         else if (!password.equals(password2))
         {
             password_confirm.setError("Both Passwords Don't Match..");
-            FancyToast.makeText(this,"Both Passwords Don't Match..",FancyToast.LENGTH_LONG,FancyToast.ERROR,false).show();
             return;
         }
         else
@@ -134,13 +120,13 @@ public class RegisterActivity extends AppCompatActivity {
             loadingBar.setMessage("Please wait, while we are checking the credentials.");
             loadingBar.setCanceledOnTouchOutside(false);
             loadingBar.show();
-            FancyToast.makeText(this,"Data Received",FancyToast.LENGTH_SHORT,FancyToast.SUCCESS,false).show();
             ValidatephoneNumber(name, phone, password);
 
         }
-    }
 
-    private void ValidatephoneNumber(final String name, final String phone, final String password) {
+
+    }private void ValidatephoneNumber(final String name, final String phone, final String password)
+    {
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
 
@@ -151,7 +137,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if (parentDbName.equals("Veterinary")){
                     if (!(dataSnapshot.child("Veterinary").child(phone).exists()))
                     {
-                        Veterinary veterinary = new Veterinary(name,phone,password,"image.jpg","");
+                        Farmer veterinary = new Farmer(name,phone,password,"image.jpg","");
 
                         RootRef.child("Veterinary").child(phone).setValue(veterinary)
                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -160,30 +146,25 @@ public class RegisterActivity extends AppCompatActivity {
                                     {
                                         if (task.isSuccessful())
                                         {
-                                            FancyToast.makeText(RegisterActivity.this, "Congratulations "+name+", your account has been created.", FancyToast.LENGTH_SHORT,FancyToast.SUCCESS,false).show();
+                                            Toast.makeText(RegisterActivity.this, "Congratulations Veterinary, your account has been created.", Toast.LENGTH_SHORT).show();
                                             loadingBar.dismiss();
 
                                             Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                            intent.putExtra("choose","vet");
                                             startActivity(intent);
                                         }
                                         else
                                         {
                                             loadingBar.dismiss();
-                                            //Toast.makeText(RegisterActivity.this, "Network Error: Please try again after some time...", Toast.LENGTH_SHORT).show();
-                                            FancyToast.makeText(RegisterActivity.this, "Network Error: Please try again after some time...", FancyToast.LENGTH_SHORT,FancyToast.ERROR,false).show();
+                                            Toast.makeText(RegisterActivity.this, "Network Error: Please try again after some time...", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 });
                     }
                     else
                     {
-                        //Toast.makeText(RegisterActivity.this, "This " + phone + " already exists.", Toast.LENGTH_SHORT).show();
-                        FancyToast.makeText(RegisterActivity.this, "This " + phone + " already exists.", FancyToast.LENGTH_SHORT,FancyToast.ERROR,false).show();
-
+                        Toast.makeText(RegisterActivity.this, "This " + phone + " already exists.", Toast.LENGTH_SHORT).show();
                         loadingBar.dismiss();
-                        FancyToast.makeText(RegisterActivity.this, "Please try again using another phone number.", FancyToast.LENGTH_SHORT,FancyToast.INFO,false).show();
-                        //Toast.makeText(RegisterActivity.this, "Please try again using another phone number.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, "Please try again using another phone number.", Toast.LENGTH_SHORT).show();
 
                         Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                         startActivity(intent);
@@ -203,29 +184,25 @@ public class RegisterActivity extends AppCompatActivity {
                                     {
                                         if (task.isSuccessful())
                                         {
-                                            FancyToast.makeText(RegisterActivity.this, "Congratulations "+name+", your account has been created.", FancyToast.LENGTH_SHORT,FancyToast.SUCCESS,false).show();
+                                            Toast.makeText(RegisterActivity.this, "Congratulations Farmer, your account has been created.", Toast.LENGTH_SHORT).show();
                                             loadingBar.dismiss();
 
                                             Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                            intent.putExtra("choose","farmer");
                                             startActivity(intent);
                                         }
                                         else
                                         {
                                             loadingBar.dismiss();
-                                            FancyToast.makeText(RegisterActivity.this, "Network Error: Please try again after some time...", FancyToast.LENGTH_SHORT,FancyToast.ERROR,false).show();
+                                            Toast.makeText(RegisterActivity.this, "Network Error: Please try again after some time...", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 });
                     }
                     else
                     {
-                        //Toast.makeText(RegisterActivity.this, "This " + phone + " already exists.", Toast.LENGTH_SHORT).show();
-                        FancyToast.makeText(RegisterActivity.this, "This " + phone + " already exists.", FancyToast.LENGTH_SHORT,FancyToast.ERROR,false).show();
-
+                        Toast.makeText(RegisterActivity.this, "This " + phone + " already exists.", Toast.LENGTH_SHORT).show();
                         loadingBar.dismiss();
-                        FancyToast.makeText(RegisterActivity.this, "Please try again using another phone number.", FancyToast.LENGTH_SHORT,FancyToast.INFO,false).show();
-                        //Toast.makeText(RegisterActivity.this, "Please try again using another phone number.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, "Please try again using another phone number.", Toast.LENGTH_SHORT).show();
 
                         Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                         startActivity(intent);
@@ -240,5 +217,6 @@ public class RegisterActivity extends AppCompatActivity {
 
             }
         });
+
     }
 }

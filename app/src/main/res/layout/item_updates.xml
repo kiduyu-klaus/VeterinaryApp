@@ -1,0 +1,70 @@
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp">
+
+        <TextView
+            android:id="@+id/fetch_update_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dr Manundu Vet Office"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            />
+
+        <ImageView
+            android:id="@+id/fetch_update_image"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_below="@+id/fetch_update_title"
+            android:src="@drawable/office"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="2dp"
+           />
+
+        <TextView
+            android:id="@+id/fetch_update_contents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fetch_update_image"
+            android:text="location: Kingongo"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            android:textColor="@color/colorPrimaryDark"
+            />
+
+        <TextView
+            android:id="@+id/fetch_update_owner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fetch_update_contents"
+            android:text="location: Kingongo"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            android:textColor="@color/colorPrimaryDark"
+            />
+        <TextView
+            android:id="@+id/fetch_update_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fetch_update_owner"
+            android:text="location: Kingongo"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            android:textColor="@color/colorPrimaryDark"
+            />
+
+
+
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

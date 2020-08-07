@@ -1,0 +1,73 @@
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp">
+
+        <TextView
+            android:id="@+id/fetch_officename"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dr Manundu Vet Office"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            />
+
+        <ImageView
+            android:id="@+id/fetch_officeimage"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_below="@+id/fetch_officename"
+            android:src="@drawable/office"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="2dp"
+           />
+
+        <TextView
+            android:id="@+id/fetch_offficelocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fetch_officeimage"
+            android:text="location: Kingongo"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            android:textColor="@color/colorPrimaryDark"
+            />
+
+            <TextView
+                android:id="@+id/fetch_offficeowner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fetch_offficelocation"
+            android:text="location: Kingongo"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            android:textColor="@color/colorPrimaryDark"
+            />
+
+        <TextView
+            android:id="@+id/fetch_officedescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fetch_offficeowner"
+            android:text="The office is Situated At Kingongo on motif building opposite kenya prisons "
+            android:layout_marginTop="2dp"
+            android:textAlignment="center"
+            android:textSize="16dp"
+            android:textColor="@color/colorPrimaryDark"
+            />
+
+
+
+
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>
