@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">K-vet</string>
-
     <string name="splash_button1">Join Now</string>
     <string name="splash_button2">Already have an Account? Login</string>
 
@@ -61,6 +60,7 @@
 
 
     <string name="please_wait">Please wait....Verifying Credentials.</string>
-    <string name="splash_text">K-Vet App</string>
+    <string name="splash_text">A Veterinary Application</string>
+
 
 </resources>
