@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/background_true"
+    android:background="@color/colorPrimaryDark"
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
 
@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/customer_registration"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/white"
         android:textAppearance="?android:textAppearanceLarge"
         android:gravity="center"
         android:id="@+id/reg_title"
@@ -28,8 +28,8 @@
         android:padding="10dp"
         android:inputType="text"
         android:textAppearance="?android:textAppearanceLarge"
-        android:textColorHint="@color/colorAccent"
-        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
         android:id="@+id/fullname"
         />
     <EditText
@@ -41,8 +41,8 @@
         android:padding="10dp"
         android:textAppearance="?android:textAppearanceLarge"
         android:inputType="number"
-        android:textColorHint="@color/colorAccent"
-        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
         android:id="@+id/phone_number"
         />
 
@@ -55,8 +55,8 @@
         android:background="@drawable/inputs"
         android:padding="10dp"
         android:inputType="textPassword"
-        android:textColor="@color/colorAccent"
-        android:textColorHint="@color/colorAccent"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:id="@+id/password_reg"
         />
 
@@ -69,8 +69,8 @@
         android:background="@drawable/inputs"
         android:padding="10dp"
         android:inputType="textPassword"
-        android:textColor="@color/colorAccent"
-        android:textColorHint="@color/colorAccent"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:id="@+id/password_confm"
         />
 
@@ -91,7 +91,7 @@
         android:textAppearance="?android:textAppearanceSmall"
         android:text="@string/already_have_account_sign_in_here"
         android:gravity="center"
-        android:textColor="@android:color/holo_red_dark"
+        android:textColor="@color/white"
         android:padding="5dp"
         android:textSize="19sp"
         android:id="@+id/signin_txt"
@@ -103,7 +103,7 @@
         android:textAppearance="?android:textAppearanceSmall"
         android:text="@string/are_you_a_veterinary_click_here"
         android:gravity="center"
-        android:textColor="@android:color/holo_red_dark"
+        android:textColor="@color/white"
         android:padding="5dp"
         android:layout_marginTop="5dp"
         android:textSize="19sp"
@@ -116,7 +116,7 @@
         android:textAppearance="?android:textAppearanceSmall"
         android:text="@string/are_you_a_customer_click_here"
         android:gravity="center"
-        android:textColor="@android:color/holo_red_dark"
+        android:textColor="@color/white"
         android:padding="5dp"
         android:layout_marginTop="5dp"
         android:textSize="19sp"
